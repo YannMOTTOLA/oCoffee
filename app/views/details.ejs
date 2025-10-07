@@ -1,0 +1,26 @@
+<%- include('partials/header') %>
+<main>
+  <section class="details">
+    <img src="/images/coffees/<%= cafe.cafe_reference %>.png" alt="<%= cafe.cafe_nom %>" />
+    <div>
+      <h2><%= cafe.cafe_nom %></h2>
+      <p>Origine <%= cafe.pays_nom %></p>
+      <p><%= cafe.cafe_prix_kg %>€/kg</p>
+      <p><%= cafe.cafe_description%></p>
+
+      <% if (cats?.length) { %>
+      <ul>
+        <% cats.forEach((cat) => { %><li><%= cat %></li><% }) %>
+      </ul>
+      <% } else { %>
+      <p>Aucune caractéristique.</p>
+      <% } %>
+      <button class="button" type="button" data-id="<%= cafe.cafe_id %>" onclick="addToCart(this)">
+        Ajouter au panier
+      </button>
+  </section>
+</main>
+
+<script defer src="/js/details.js"></script>
+
+<%- include('partials/footer') %>

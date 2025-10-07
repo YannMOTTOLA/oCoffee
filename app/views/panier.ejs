@@ -1,0 +1,43 @@
+<%- include('partials/header') %>
+
+<main id="cart">
+  <h1>Votre panier</h1>
+
+  <% if (items.length === 0) { %>
+    <p>Votre panier est vide.</p>
+  <% } else { %>
+    <ul class="cart-list">
+      <% for (const item of items) { %>
+        <li class="cart-item">
+          <img class="cart-img" src="/images/coffees/<%= item.reference %>.png" alt="<%= item.nom %>">
+
+          <div class="cart-info">
+            <h2><%= item.nom %></h2>
+            <p>Origine : <%= item.pays_nom %></p>
+          </div>
+
+          <div class="cart-pricing">
+            <div class="price"><%= Number(item.prix_kg).toFixed(2) %> € / kg</div>
+
+            <div class="qty">
+              Qté : <span><%= item.quantite %></span>
+              <a href="/panier/remove/<%= item.id %>" class="button-outline">−</a>
+            </div>
+
+            <div class="subtotal"><%= (Number(item.prix_kg) * item.quantite).toFixed(2) %> €</div>
+          </div>
+        </li>
+      <% } %>
+    </ul>
+
+    <div class="cart-total">
+      <h2>Total : <%= total.toFixed(2) %> €</h2>
+      <button class="button">Acheter</button>
+      <form method="post" action="/panier/clear">
+        <button class="button" type="submit">Vider le panier</button>
+      </form>
+    </div>
+  <% } %>
+</main>
+
+<%- include('partials/footer') %>
