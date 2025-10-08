@@ -13,7 +13,7 @@ Elle affiche un catalogue de cafés, leurs détails et un panier d’achat simul
 Clonez le dépôt et installez les dépendances :
 
 ```bash
-git clone https://github.com/<votre-utilisateur>/OCoffee.git
+git clone git@github.com:YannMOTTOLA/oCoffee.git
 cd OCoffee
 npm install
 ```
@@ -22,8 +22,6 @@ npm install
 
 ```bash
 npm run dev
-# ou
-node index.js
 ```
 
 Ouvrez [http://localhost:3000](http://localhost:3000) dans votre navigateur pour voir le résultat.
